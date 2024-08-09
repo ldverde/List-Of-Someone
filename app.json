@@ -32,15 +32,14 @@
       "router": {
         "origin": false
       },
-      "eas": {
-        "projectId": "3d9c4788-ee1e-4b07-a65a-1b9f97fdc6db"
-      }
+      "eas": {}
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
       "url": "https://u.expo.dev/3d9c4788-ee1e-4b07-a65a-1b9f97fdc6db"
-    }
+    },
+    "owner": "ldverde"
   }
 }
