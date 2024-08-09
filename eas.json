@@ -16,7 +16,7 @@
       "ios": {
         "image": "latest"
       },
-      "channel": "staging"
+      "channel": "preview"
     },
     "production": {
       "android": {
