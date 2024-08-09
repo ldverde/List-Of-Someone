@@ -32,7 +32,9 @@
       "router": {
         "origin": false
       },
-      "eas": {}
+      "eas": {
+        "projectId": "3d9c4788-ee1e-4b07-a65a-1b9f97fdc6db"
+      }
     },
     "runtimeVersion": {
       "policy": "appVersion"
