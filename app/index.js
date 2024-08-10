@@ -11,7 +11,7 @@ class TypingText extends Component {
   render() {
     return  <View style={ styles.Typi }>
     <TypeWriter style={styles.titulo} initialDelay={1000} typing={1} minDelay={20} maxDelay={60}> Seja Bem Vinda a sua lista de vídeos, os quais foram recomendados por... você deve saber quem.</TypeWriter>
-    <TypeWriter style={styles.titulo} initialDelay={10000} typing={1} minDelay={20} maxDelay={60}> {"\n"}{"\n"} Bem, os vídeos estão logo abaixo, basta clicar:</TypeWriter>
+    <TypeWriter style={styles.titulo} initialDelay={10001} typing={1} minDelay={20} maxDelay={60}> {"\n"}{"\n"} Bem, os vídeos estão logo abaixo, basta clicar:</TypeWriter>
   </View>
   }
 }
