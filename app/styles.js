@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   tibut: {
     fontSize: 18,
     fontFamily: "ArefRuqaa_700Bold",
+    display:"swap"
   },
   titulo: {
     fontFamily: "Sunshiney_400Regular",
