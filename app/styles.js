@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     fontFamily: "Sunshiney_400Regular",
     fontSize: 40,
     color: "white",
-    marginLeft:7
+    marginLeft:7,
+    display:"swap"
   },
   Vimg: {
     width: 380,
@@ -44,16 +45,16 @@ const styles = StyleSheet.create({
     
   },
   rodaPe: {
-   height:120,
+   height:100,
     justifyContent:'center',
     alignItems: "center",
     backgroundColor: "#282A36",
-    marginTop: 35,
   },
   rodaText: {
-    fontSize: 23,
+    fontSize:20,
     color: "white",
     fontFamily: "JosefinSans_400Regular",
+    display:"swap"
   },
   scroll:{
     backgroundColor:'#282A36'
