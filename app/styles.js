@@ -29,17 +29,16 @@ const styles = StyleSheet.create({
     fontFamily: "Sunshiney_400Regular",
     fontSize: 40,
     color: "white",
-    marginLeft:7,
     display:"swap"
   },
   Vimg: {
     width: 380,
-    height: 210,
+    height: 200,
     marginBottom: 30,
   },
   img: {
     width: 380,
-    height: 210,
+    height: 200,
   },
   flat: {
     marginTop: 20,
