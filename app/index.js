@@ -73,12 +73,12 @@ const Item = ({ index, style }) => {
 
 function HomeScreen() {
   return (
-    <View>
+    <View style={styles.ver}> 
       <List
-        height={600}
+        height={1000}
         itemCount={link.length}
-        itemSize={100}
-        width={100}
+        itemSize={600}
+        width={"100%"}
       >
         {({ index, style }) => <Item index={index} style={style} />}
       </List>
