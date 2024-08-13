@@ -5,8 +5,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#282A36",
     flex:1
   },
-  Typi: {
-    height:620,
+  Typi: { 
     paddingLeft:20,
     paddingRight:10,
     marginTop: 30,
@@ -40,18 +39,15 @@ const styles = StyleSheet.create({
     width: 380,
     height: 200,
   },
-  flat: {
-    marginTop: 20,
-    
-  },
   rodaPe: {
-   height:100,
+    borderRadius:20,
+    height:50,
     justifyContent:'center',
     alignItems: "center",
-    backgroundColor: "#282A36",
+    backgroundColor: "#282A36", position: 'absolute', left: 0, right: 0, bottom: 0
   },
   rodaText: {
-    fontSize:20,
+    fontSize:15,
     color: "white",
     fontFamily: "JosefinSans_400Regular",
     display:"swap"
