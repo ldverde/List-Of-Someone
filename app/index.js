@@ -6,24 +6,18 @@ import React, { Component, useState, useEffect } from 'react';
 import TypeWriter from 'react-native-typewriter';
 import { Shadow } from 'react-native-shadow-2';
 import styles from './styles';
-import { FixedSizeList as List } from 'react-window';
-
 class TypingText extends Component {
   render() {
-    return <View >
+    return <View style={styles.Typi}>
       <TypeWriter style={styles.titulo} initialDelay={1000} typing={1} minDelay={20} maxDelay={60}> Seja Bem Vindo a sua lista de vídeos, os quais foram recomendados por... você deve saber quem.</TypeWriter>
       <TypeWriter style={styles.titulo} initialDelay={10000} typing={1} minDelay={20} maxDelay={60}> {"\n"}{"\n"} Bem, os vídeos estão logo abaixo, basta clicar:</TypeWriter>
     </View>
   }
 }
 
-const link = lista.map(e => e.linkId);
-
-const Item = ({ index, style }) => {
+function Item({ linkId }) {
   const [detalhes, setDetalhes] = useState(null);
   const [loading, setLoading] = useState(true);
-  const linkId = link[index];
-
   useEffect(() => {
     try {
       fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyC6HIfXaIcu6EEI9NRwWMeLSxyKdIm7_rE&id=${linkId}&rel=reconnect`)
@@ -40,7 +34,7 @@ const Item = ({ index, style }) => {
     } catch (error) {
       setDetalhes([])
       Alert.alert('Erro', 'Não foi possível carregar os dados do vídeo');
-    } finally {
+    }finally {
       setLoading(false)
     }
   }, [linkId]);
@@ -48,7 +42,7 @@ const Item = ({ index, style }) => {
   if (!detalhes) return null;
 
   return (
-    <View style={[styles.ver, style]}>
+    <View style={styles.ver}>
       <Pressable onPress={() => { Linking.openURL(detalhes.link) }}>
         <Shadow distance={18} startColor={'#eb9066d8'} endColor={'#ff00ff10'} offset={[3, -2]}>
           {loading ? <ActivityIndicator size="large" color="#00ff00" /> :
@@ -72,20 +66,21 @@ const Item = ({ index, style }) => {
 
 
 function HomeScreen() {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.ver}> 
-      <List
-        height={1000}
-        itemCount={link.length}
-        itemSize={600}
-        width={"100%"}
-      >
-        {({ index, style }) => <Item index={index} style={style} />}
-      </List>
+    <View style={{ paddingTop: insets.top }}>
+      <TypingText/>
+      <FlatList
+        scrollEnabled={false}
+        style={styles.flat}
+        data={lista}
+        renderItem={({ item }) => <Item linkId={item.linkId} />}
+        keyExtractor={item => item.key}
+      />
     </View>
   );
 }
-
 
 
 function RodaPe() {
@@ -97,19 +92,15 @@ function RodaPe() {
 }
 
 export default function App() {
-  const insets = useSafeAreaInsets();
   return (
     <SafeAreaProvider>
       <StatusBar style='dark' translucent={true} />
       <ScrollView style={styles.scroll} contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={[styles.container, { paddingTop: insets.top }]} >
-          <View style={styles.Typi} >
-            <TypingText />
-          </View>
+        <View style={styles.container}> 
           <HomeScreen />
+          <RodaPe />
         </View>
       </ScrollView>
-      <RodaPe />
     </SafeAreaProvider>
   );
 }
