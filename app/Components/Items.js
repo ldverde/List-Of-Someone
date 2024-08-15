@@ -31,26 +31,25 @@ export default function Item({ linkId }) {
     if (loading) return <ActivityIndicator size="large" color="#00ff00" />;
 
     if (!detalhes) return null; 
+    
     return (
       <View style={styles.ver}>
-        <Pressable onPress={() => { Linking.openURL(detalhes.link) }}>
-          <Shadow distance={18} startColor={'#eb9066d8'} endColor={'#ff00ff10'} offset={[3, -2]}>
-            {loading ? <ActivityIndicator size="large" color="#00ff00" /> :
-              <View style={styles.Vimg}>
-                <Image
-                  source={{ uri: detalhes.thumb }}
-                  style={styles.img}
-                />
-              </View>}
-          </Shadow>
-        </Pressable>
-        <Pressable onPress={() => { Linking.openURL(detalhes.link) }}>
-          <Shadow distance={12} startColor={'#70c8fa'} endColor={'#ff00ff10'} offset={[3, -2]} style={styles.bot}>
-            {loading ? <ActivityIndicator size="small" color="#00ff00" /> :
-              <Text style={styles.tibut}>{`${detalhes.titulo} - ${detalhes.canal}`}</Text>}
-          </Shadow>
-        </Pressable>
+          <Pressable onPress={() => { Linking.openURL(detalhes.link) }}>
+              <Shadow distance={18} startColor={'#eb9066d8'} endColor={'#ff00ff10'} offset={[3, -2]}>
+                  <View style={styles.Vimg}>
+                      <Image
+                          source={{ uri: detalhes.thumb }}
+                          style={styles.img}
+                      />
+                  </View>
+              </Shadow>
+          </Pressable>
+          <Pressable onPress={() => { Linking.openURL(detalhes.link) }}>
+              <Shadow distance={12} startColor={'#70c8fa'} endColor={'#ff00ff10'} offset={[3, -2]} style={styles.bot}>
+                  <Text style={styles.tibut}>{`${detalhes.titulo} - ${detalhes.canal}`}</Text>
+              </Shadow>
+          </Pressable>
       </View>
-    )
+  );
   } 
   
