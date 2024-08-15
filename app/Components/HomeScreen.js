@@ -2,11 +2,11 @@ import TypingText from './TypingText';
 import RodaPe from './RodaPe';
 import { FlatList, View } from 'react-native';
 import { lista } from '../../Lista';
-import renderItem from '../Elements.flatlist/renderItem';
+import renderItem from './Elements.flatlist/renderItem';
 import styles from '../styles';
-import keyExtractor from '../Elements.flatlist/keyExtractor';
-import getItemLayout from '../Elements.flatlist/getItemLayout';
-import renderItemSeparator from '../Elements.flatlist/renderItemSeparator';
+import keyExtractor from './Elements.flatlist/keyExtractor';
+import getItemLayout from './Elements.flatlist/getItemLayout';
+import renderItemSeparator from './Elements.flatlist/renderItemSeparator';
 
 export default function HomeScreen() {
     return (
@@ -17,9 +17,10 @@ export default function HomeScreen() {
           ListHeaderComponentStyle={styles.Typi}
           ListFooterComponentStyle={styles.rodaPe}
           style={styles.flat}
-          maxToRenderPerBatch={7}
+          maxToRenderPerBatch={15}
           removeClippedSubviews={true} 
           initialNumToRender={5}
+          windowSize={11}
           data={lista}
           renderItem={renderItem}
           keyExtractor={keyExtractor}

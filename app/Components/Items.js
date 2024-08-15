@@ -1,4 +1,4 @@
-import { ActivityIndicator, Image, Alert, Linking,Text, View, Pressable } from 'react-native';
+import { ActivityIndicator, Image, Alert, Linking, Text, View, Pressable } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { Shadow } from 'react-native-shadow-2';
 import styles from '../styles';
@@ -6,29 +6,31 @@ import styles from '../styles';
 export default function Item({ linkId }) {
     const [detalhes, setDetalhes] = useState(null);
     const [loading, setLoading] = useState(true);
-    useEffect(() => {
-      try {
-        fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyC6HIfXaIcu6EEI9NRwWMeLSxyKdIm7_rE&id=${linkId}&rel=reconnect`)
-          .then(resposta => resposta.json())
-          .then(json => {
-            const detalhe = {
-              titulo: json.items[0].snippet.title,
-              canal: json.items[0].snippet.channelTitle,
-              thumb: json.items[0].snippet.thumbnails.high.url,
-              link: `https://www.youtube.com/watch?v=${json.items[0].id}`
-            };
-            setDetalhes(detalhe);
-          })
-      } catch (error) {
-        setDetalhes([])
-        Alert.alert('Erro', 'Não foi possível carregar os dados do vídeo');
-      }finally {
-        setLoading(false)
-      }
+
+    useEffect(() => { 
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyC6HIfXaIcu6EEI9NRwWMeLSxyKdIm7_rE&id=${linkId}`);
+                const json = await response.json();
+                const detalhe = {
+                    titulo: json.items[0].snippet.title,
+                    canal: json.items[0].snippet.channelTitle,
+                    thumb: json.items[0].snippet.thumbnails.high.url,
+                    link: `https://www.youtube.com/watch?v=${json.items[0].id}`
+                };
+                setDetalhes(detalhe);
+            } catch (error) {
+                Alert.alert('Erro', 'Não foi possível carregar os dados do vídeo');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
     }, [linkId]);
-  
-    if (!detalhes) return null;
-  
+
+    if (loading) return <ActivityIndicator size="large" color="#00ff00" />;
+
+    if (!detalhes) return null; 
     return (
       <View style={styles.ver}>
         <Pressable onPress={() => { Linking.openURL(detalhes.link) }}>

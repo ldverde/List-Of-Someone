@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { View } from 'react-native';
-import Item from '../Components/Items';
+import Item from '../Items';
 
 const renderItem = useCallback(({item}) => (
     <View key={item.key}>
