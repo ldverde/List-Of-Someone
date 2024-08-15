@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     height:50,
     justifyContent:'center',
     alignItems: "center",
-    backgroundColor: "#282A36", position: 'absolute', left: 0, right: 0, bottom: 0
+    backgroundColor: "#282A36" 
   },
   rodaText: {
     fontSize:15,

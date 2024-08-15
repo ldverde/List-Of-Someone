@@ -2,14 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, Image, Alert, Linking, FlatList, Text, View, Pressable, ScrollView } from 'react-native';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { lista } from '../Lista';
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState , useCallback , useEffect } from 'react';
 import TypeWriter from 'react-native-typewriter';
 import { Shadow } from 'react-native-shadow-2';
 import styles from './styles';
 class TypingText extends Component {
   render() {
-    return <View style={styles.Typi}>
-      <TypeWriter style={styles.titulo} initialDelay={1000} typing={1} minDelay={20} maxDelay={60}> Seja Bem Vindo a sua lista de vídeos, os quais foram recomendados por... você deve saber quem.</TypeWriter>
+    return <View>
+      <TypeWriter style={styles.titulo} initialDelay={1000} typing={1} minDelay={20} maxDelay={60}> Seja Bem Vinda a sua lista de vídeos, os quais foram recomendados por... você deve saber quem.</TypeWriter>
       <TypeWriter style={styles.titulo} initialDelay={10000} typing={1} minDelay={20} maxDelay={60}> {"\n"}{"\n"} Bem, os vídeos estão logo abaixo, basta clicar:</TypeWriter>
     </View>
   }
@@ -65,42 +65,65 @@ function Item({ linkId }) {
 }
 
 
+function RodaPe() {
+  return (
+    <View >
+      <Text style={styles.rodaText}>Developed by Lucas D. (A.K.A: ldverde)</Text>
+    </View>
+  )
+}
+
+const renderItemSeparator = () => {
+  return <View style={{ height: 50 }} />
+}
+
 function HomeScreen() {
   const insets = useSafeAreaInsets();
 
+  const getItemLayout = (_, index) => {
+    return {
+          length: 460, offset: 460 * index, index
+        }
+    }
+
+  const keyExtractor = item => item.key
+
+  const renderItem = useCallback(({item}) => (
+    <View key={item.key}>
+      <Item linkId={item.linkId} /> 
+    </View>
+   ), [])
+
   return (
-    <View style={{ paddingTop: insets.top }}>
-      <TypingText/>
+    <View style={{ paddingTop: insets.top }}> 
       <FlatList
-        scrollEnabled={false}
+        ListHeaderComponent={<TypingText/>}
+        ListFooterComponent={<RodaPe/>}
+        ListHeaderComponentStyle={styles.Typi}
+        ListFooterComponentStyle={styles.rodaPe}
         style={styles.flat}
+        maxToRenderPerBatch={7}
+        removeClippedSubviews={true} 
+        initialNumToRender={5}
         data={lista}
-        renderItem={({ item }) => <Item linkId={item.linkId} />}
-        keyExtractor={item => item.key}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        getItemLayout={getItemLayout}
+        ItemSeparatorComponent={renderItemSeparator}
       />
     </View>
   );
 }
 
 
-function RodaPe() {
-  return (
-    <View style={styles.rodaPe}>
-      <Text style={styles.rodaText}>Developed by Lucas D. (A.K.A: ldverde)</Text>
-    </View>
-  )
-}
-
 export default function App() {
   return (
     <SafeAreaProvider>
       <StatusBar style='dark' translucent={true} />
-      <ScrollView style={styles.scroll} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}> 
           <HomeScreen />
-          <RodaPe />
         </View>
-      </ScrollView>
+       
     </SafeAreaProvider>
   );
 }
