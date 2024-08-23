@@ -51,10 +51,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontFamily: "JosefinSans_400Regular",
     display:"swap"
-  },
-  scroll:{
-    backgroundColor:'#282A36'
-  }
+  } 
 });
 
 export default styles;
