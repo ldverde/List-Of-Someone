@@ -20,7 +20,7 @@ function TypingText() {
 
   return ( 
       <View>
-      <TypeWriter typing={typing} onTypingEnd={handleTypingEnd} style={styles.titulo} initialDelay={7500} minDelay={20} maxDelay={70}>
+      <TypeWriter typing={typing} onTypingEnd={handleTypingEnd} style={styles.titulo} initialDelay={6000} minDelay={20} maxDelay={70}>
          Seja Bem Vindo(a) a sua lista de vídeos! 
        </TypeWriter>
       <TypeWriter typing={typi} fixed={true}  style={styles.titulo} minDelay={20} maxDelay={60}>
