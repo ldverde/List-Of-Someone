@@ -6,11 +6,12 @@ import styles from '../styles';
 export default function Item({ linkId }) {
     const [detalhes, setDetalhes] = useState(null);
     const [loading, setLoading] = useState(true);
+    const apisecret = process.env.API_SECRET;
 
     useEffect(() => { 
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyC6HIfXaIcu6EEI9NRwWMeLSxyKdIm7_rE&id=${linkId}`);
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&key=${apisecret}&id=${linkId}`);
                 const json = await response.json();
                 const detalhe = {
                     titulo: json.items[0].snippet.title,
