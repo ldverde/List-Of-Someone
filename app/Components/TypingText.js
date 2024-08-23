@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View,Text } from 'react-native';
+import { View } from 'react-native';
 import TypeWriter from 'react-native-typewriter';
 import styles from '../styles';
 
