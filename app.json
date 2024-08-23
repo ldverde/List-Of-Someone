@@ -8,9 +8,8 @@
     "userInterfaceStyle": "light",
     "scheme": "your-app-scheme",
     "splash": {
-      "image": "./assets/icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/icon2.png",
+      "resizeMode": "contain"
     },
     "ios": {
       "supportsTablet": true
@@ -18,13 +17,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#282A36"
       },
       "package": "com.ldverde.ListOfSomeone"
     },
     "web": {
-      "favicon": "./assets/icon.png"
-      ,"backgroundColor": "#ffffff"
+      "favicon": "./assets/icon2.png"
     },
     "plugins": [
       "expo-router"
