@@ -10,17 +10,17 @@ function TypingText() {
   const handleTypingEnd = () => {
     if (typing === 1) {
       setTimeout(() =>
-        setTyping(-1),2500) 
+        setTyping(-1),2600) 
     }
     else if(typing === -1){
       setTimeout(() =>
-        setTypi(1),1100)
+        setTypi(1),1000)
     }
   }
 
   return ( 
       <View>
-      <TypeWriter typing={typing} onTypingEnd={handleTypingEnd} style={styles.titulo} initialDelay={8000} minDelay={20} maxDelay={60}>
+      <TypeWriter typing={typing} onTypingEnd={handleTypingEnd} style={styles.titulo} initialDelay={7500} minDelay={20} maxDelay={70}>
          Seja Bem Vindo(a) a sua lista de vídeos! 
        </TypeWriter>
       <TypeWriter typing={typi} style={styles.titulo} minDelay={20} maxDelay={60}>

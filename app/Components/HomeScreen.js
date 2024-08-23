@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { FlatList, View } from 'react-native';
 import TypingText from './TypingText';
 import RodaPe from './RodaPe';
@@ -9,11 +9,7 @@ import getItemLayout from './Elements.flatlist/getItemLayout';
 import renderItemSeparator from './Elements.flatlist/renderItemSeparator';
 import Item from './Items';
 
-export default function HomeScreen() { 
-
-  const handleListReady = () => {
-    setListLoaded(true);
-  };
+export default function HomeScreen() {
 
   const renderItem = useCallback(({ item }) => (
     <View key={item.key}>
@@ -22,7 +18,7 @@ export default function HomeScreen() {
   ), []);
 
   return (
-    <View style={{ transition: 'opacity 2s' }}> 
+    <View> 
       <FlatList
         ListHeaderComponent={<TypingText /> }
         ListFooterComponent={<RodaPe />}
