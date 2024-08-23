@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react';
+import React, { useState } from 'react';
 import { View,Text } from 'react-native';
 import TypeWriter from 'react-native-typewriter';
 import styles from '../styles';
