@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   Typi: { 
     paddingLeft:20,
     paddingRight:10,
-    marginTop: 30,
+    marginTop: 10,
   },
   ver: {
     alignItems: "center",
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   titulo: {
     fontFamily: "Sunshiney_400Regular",
-    fontSize: 40,
+    fontSize: 35,
     color: "white",
     display:"swap"
   },

@@ -9,7 +9,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <StatusBar style='dark' translucent={true} />
-        <View style={[styles.container, { paddingTop: insets.top }]}> 
+        <View style={[styles.container, { paddingTop: insets.top }]}>
           <HomeScreen />
         </View>
     </SafeAreaProvider>

@@ -1,31 +1,32 @@
- 
-import { View } from 'react-native';
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
+import { View,Text } from 'react-native';
 import TypeWriter from 'react-native-typewriter';
 import styles from '../styles';
 
-class TypingText extends Component {
+function TypingText() {
+  const [typing, setTyping] = useState(1);
+  const [typi, setTypi] = useState(0);
 
-
-  render() {
-     let delayMap = [
-      { at: /!/, delay: 1000 }
-    ]
-    return (
-      <View>
-        <TypeWriter
-          style={styles.titulo}
-          initialDelay={2000}
-          typing={1}
-          minDelay={20}
-          maxDelay={60}
-          delayMap={delayMap} 
-        >
-          Seja Bem Vinda a sua lista de vídeos, os quais foram recomendados por... você deve saber quem! {"\n"}{"\n"}Bem, os vídeos estão logo abaixo, basta clicar:
-        </TypeWriter>
-      </View>
-    );
+  const handleTypingEnd = () => {
+    if (typing === 1) {
+      setTimeout(() =>
+        setTyping(-1),2500) 
+    }
+    else if(typing === -1){
+      setTimeout(() =>
+        setTypi(1),1100)
+    }
   }
-}
 
+  return ( 
+      <View>
+      <TypeWriter typing={typing} onTypingEnd={handleTypingEnd} style={styles.titulo} initialDelay={8000} minDelay={20} maxDelay={60}>
+         Seja Bem Vindo(a) a sua lista de vídeos! 
+       </TypeWriter>
+      <TypeWriter typing={typi} style={styles.titulo} minDelay={20} maxDelay={60}>
+          Os vídeos estão logo abaixo, basta clicar:
+      </TypeWriter> 
+      </View>
+    )
+}
 export default TypingText;
