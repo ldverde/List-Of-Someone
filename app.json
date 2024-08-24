@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle":"dark",
     "scheme": "your-app-scheme",
     "splash": {
       "image": "./assets/icon2.png",
@@ -16,7 +16,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/icon3.png",
         "backgroundColor": "#282A36"
       },
       "package": "com.ldverde.ListOfSomeone"

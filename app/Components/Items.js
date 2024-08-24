@@ -2,16 +2,18 @@ import { ActivityIndicator, Image, Alert, Linking, Text, View, Pressable } from 
 import React, { useState, useEffect } from 'react';
 import { Shadow } from 'react-native-shadow-2';
 import styles from '../styles';
+const apisecret = process.env.API_KEY;
+const url = process.env.API_URL;
+
+console.log(apisecret,url)
 
 export default function Item({ linkId }) {
     const [detalhes, setDetalhes] = useState(null);
     const [loading, setLoading] = useState(true);
-    const apisecret = process.env.API_SECRET;
-
     useEffect(() => { 
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&key=${apisecret}&id=${linkId}`);
+                const response = await fetch(`${url}part=snippet&key=${apisecret}&id=${linkId}`);
                 const json = await response.json();
                 const detalhe = {
                     titulo: json.items[0].snippet.title,
