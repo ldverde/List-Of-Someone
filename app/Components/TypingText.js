@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { View } from 'react-native';
-import TypeWriter from 'react-native-typewriter';
+import React, { useEffect, useState } from 'react';
+import { View,Text } from 'react-native';
 import styles from '../styles';
+import TypeWriterEffect from 'react-native-typewriter-effect';
 
-function TypingText() {
-  const [typing, setTyping] = useState(1);
-  const [typi, setTypi] = useState(0);
+function Second({ onSecond }){
 
-  const handleTypingEnd = () => {
-    if (typing === 1) {
-      setTimeout(() =>
-        setTyping(-1),2600) 
-    }
-    else if(typing === -1){
-      setTimeout(() =>
-        setTypi(1),1000)
-    }
-  }
+  return <View>
+    <TypeWriterEffect onTypingEnd={onSecond} style={styles.titulo} content='Os vídeos estão logo abaixo, basta clicar:' />
+    </View>
+} 
+
+function TypingText({onDone}) {
+  const [Pronto, SetPronto] = useState(false)
+
+  const handlePronto = () => {
+    
+    SetPronto(true)
+  } 
 
   return ( 
       <View>
-      <TypeWriter typing={typing} onTypingEnd={handleTypingEnd} style={styles.titulo} initialDelay={6000} minDelay={20} maxDelay={70}>
-         Seja Bem Vindo(a) a sua lista de vídeos! 
-       </TypeWriter>
-      <TypeWriter typing={typi} fixed={true}  style={styles.titulo} minDelay={20} maxDelay={60}>
-          Os vídeos estão logo abaixo, basta clicar:
-      </TypeWriter> 
+      <TypeWriterEffect
+      style={styles.titulo}
+       content='Seja Bem Vindo(a) a sua lista de vídeos! '
+      onTypingEnd={() => setTimeout(handlePronto,1500)}
+       /> 
+      {Pronto && <Second onSecond={onDone} />}
       </View>
     )
-}
+  }
 export default TypingText;

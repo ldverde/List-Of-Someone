@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
     paddingLeft:20,
     paddingRight:10,
     marginTop: 10,
+    marginBottom:80
   },
   ver: {
     alignItems: "center",
-    marginTop: 150,
   },
   bot: {
     padding: 12,
@@ -20,15 +20,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#bc70fa",
   },
   tibut: {
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: "ArefRuqaa_700Bold",
     display:"swap"
   },
   titulo: {
     fontFamily: "Sunshiney_400Regular",
-    fontSize: 35,
+    fontSize: 24,
     color: "white",
-    display:"swap"
+    marginTop:20,
+    marginBottom:10
   },
   Vimg: {
     width: 380,

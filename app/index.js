@@ -1,3 +1,7 @@
+if (__DEV__) {
+  require("../ReactotronConfig");
+}
+
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';  

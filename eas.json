@@ -1,6 +1,7 @@
 {
   "cli": {
-    "version": ">= 10.2.2"
+    "version": ">= 14.5.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
@@ -8,10 +9,11 @@
       "distribution": "internal",
       "channel": "development"
     },
-    "preview": {
-      "distribution": "internal",
+    "preview": { 
       "android": {
-        "image": "latest"
+        "distribution": "internal",
+        "image": "latest",
+        "environment": "preview"
       },
       "ios": {
         "image": "latest"
