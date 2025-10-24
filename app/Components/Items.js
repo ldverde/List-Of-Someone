@@ -12,10 +12,7 @@ export default function Item({ item }) {
     return (
       <Animated.View 
         style={styles.ver}
-        entering={FadeInUp.duration(500)} // <--- É SÓ ISSO!
-        // exiting={FadeOutDown} // (opcional, para quando for removido)
-      >
-
+        entering={FadeInUp.duration(500)}>
           <Pressable onPress={() => { Linking.openURL(item.link) }}>
               <Shadow distance={18} startColor={'#eb9066d8'} endColor={'#ff00ff10'} offset={[3, -2]}>
                   <View style={styles.Vimg}>

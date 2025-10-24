@@ -5,16 +5,17 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle":"dark",
+    "userInterfaceStyle": "dark",
     "scheme": "your-app-scheme",
     "splash": {
       "image": "./assets/icon2.png",
       "resizeMode": "contain"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ldverde.ListOfSomeone"
     },
-    "android": { 
+    "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon3.png",
         "backgroundColor": "#282A36"
