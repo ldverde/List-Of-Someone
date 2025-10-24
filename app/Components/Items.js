@@ -2,6 +2,7 @@ import { ActivityIndicator, Image, Alert, Linking, Text, View, Pressable } from 
 import { Shadow } from 'react-native-shadow-2';
 import styles from '../styles';
 import React from 'react';
+import Animated, { FadeInUp, FadeOutDown } from 'react-native-reanimated';
 
 export default function Item({ item }) {
     if (!item.titulo) {
@@ -9,8 +10,12 @@ export default function Item({ item }) {
     }     
 
     return (
-      <View style={styles.ver}>
-       
+      <Animated.View 
+        style={styles.ver}
+        entering={FadeInUp.duration(500)} // <--- É SÓ ISSO!
+        // exiting={FadeOutDown} // (opcional, para quando for removido)
+      >
+
           <Pressable onPress={() => { Linking.openURL(item.link) }}>
               <Shadow distance={18} startColor={'#eb9066d8'} endColor={'#ff00ff10'} offset={[3, -2]}>
                   <View style={styles.Vimg}>
@@ -26,7 +31,7 @@ export default function Item({ item }) {
                   <Text style={styles.tibut}>{`${item.titulo} - ${item.canal}`}</Text>
               </Shadow>
           </Pressable>
-      </View>
+      </Animated.View>
   );
   } 
   

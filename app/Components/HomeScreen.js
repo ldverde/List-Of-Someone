@@ -11,7 +11,7 @@ import Item from './Items';
 
 const url = process.env.EXPO_PUBLIC_API_URL;
 
-const apisecret = process.env.EXPO_PUBLIC_API_KEY; 
+const apisecret = process.env.SENTRY_AUTH_TOKEN; 
 
 function chunkArray(array, size) {
   const chunks = [];
